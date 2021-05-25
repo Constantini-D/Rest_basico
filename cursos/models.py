@@ -23,19 +23,31 @@ class Curso(Base):
         return self.titulo
 
 
+class Aluno(Base):
+    nome = models.CharField(max_length=300)
+    email = models.EmailField()
+    inicio = Base.criacao
+
+    class Meta:
+        verbose_name = 'Aluno'
+        verbose_name_plural = 'Alunos'
+
+    def __str__(self):
+        return f'{self.nome}'
+
+
 class Avaliacao(Base):
     curso = models.ForeignKey(Curso, related_name='avaliacoes', on_delete=models.CASCADE)
-    nome = models.CharField(max_length=255)
-    email = models.EmailField()
+    aluno = models.ForeignKey(Aluno, related_name='alunos', on_delete=models.CASCADE)
     comentario = models.TextField(blank=True, default='')
     avaliacao = models.DecimalField(max_digits=2, decimal_places=1)
 
     class Meta:
         verbose_name = 'Avaliação'
         verbose_name_plural = 'Avaliações'
-        unique_together = ['email', 'curso']
+        unique_together = ['aluno', 'curso']
 
     def __str__(self):
-        return f'{self.nome} avaliou o curso {self.curso} com a nota {self.avaliacao}'
+        return f'{self.aluno} avaliou o curso {self.curso} com a nota {self.avaliacao}'
 
 
