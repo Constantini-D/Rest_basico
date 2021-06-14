@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt-BR" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Database Configuration REST &mdash; documentação Basic REST API 11/06/21</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Buscar" href="../search.html" />
+    <link rel="next" title="Final result of our project" href="finalresult.html" />
+    <link rel="prev" title="Startting the Program" href="installations.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Basic REST API
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Pesquisar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Options:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installations.html">Startting the Program</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Database Configuration REST</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-the-models-of-the-api">Create the models of the API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-the-serializer-of-the-api">Create the Serializer of the API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-the-views-of-the-api">Create the Views of the API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#views-class-code">Views class code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-the-urls-in-the-core-program">Create the urls in the core program</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="finalresult.html">Final result of our project</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Basic REST API</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Database Configuration REST</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/Options/database.rst.txt" rel="nofollow"> Ver código-fonte da página</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="database-configuration-rest">
+<h1>Database Configuration REST<a class="headerlink" href="#database-configuration-rest" title="Link permanente para este título">¶</a></h1>
+<div class="section" id="create-the-models-of-the-api">
+<h2>Create the models of the API<a class="headerlink" href="#create-the-models-of-the-api" title="Link permanente para este título">¶</a></h2>
+<p>The models file is importante bacause it’s this file that create the database of the API</p>
+<p>First off all, in this project we need to create a Parents class named <code class="docutils literal notranslate"><span class="pre">Base</span></code> that will receive the data time of the  file creation <code class="docutils literal notranslate"><span class="pre">criacao</span></code> and the actualization <code class="docutils literal notranslate"><span class="pre">atualizao</span></code> and if the user it’s online <code class="docutils literal notranslate"><span class="pre">ativo</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Base</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="n">criacao</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">atualizacao</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ativo</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+    <span class="n">abstract</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>After that we will create a child class named <code class="docutils literal notranslate"><span class="pre">Curso</span></code>. This class will be responsible this Class will be responsible to receive a course name <code class="docutils literal notranslate"><span class="pre">titulo</span></code> and
+url address <code class="docutils literal notranslate"><span class="pre">url</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Curso</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+<span class="n">titulo</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">255</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">URLField</span><span class="p">(</span><span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+    <span class="n">verbose_name</span> <span class="o">=</span> <span class="s1">&#39;Curso&#39;</span>
+    <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s1">&#39;Cursos&#39;</span>
+    <span class="n">ordering</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-id&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">titulo</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Meta</span></code> is responsible to give the verbose name to the API, verbose_name is a human-readable name for the field. If the verbose name isn’t given, Django will
+automatically create it using the field’s attribute name, converting underscores to spaces.
+And the function  <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">__str__(self):</span></code> will print the variable <code class="docutils literal notranslate"><span class="pre">titulo</span></code>.</p>
+<p>The same thing will happen with the class Alunos</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Aluno</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+<span class="n">nome</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">email</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">EmailField</span><span class="p">()</span>
+<span class="n">inicio</span> <span class="o">=</span> <span class="n">Base</span><span class="o">.</span><span class="n">criacao</span>
+
+<span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+    <span class="n">verbose_name</span> <span class="o">=</span> <span class="s1">&#39;Aluno&#39;</span>
+    <span class="n">verbose_name_plural</span> <span class="o">=</span> <span class="s1">&#39;Alunos&#39;</span>
+
+<span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">nome</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>In the <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Avaliacao(Base):</span></code> the variable will correlate the variable <code class="docutils literal notranslate"><span class="pre">curso</span></code> and <code class="docutils literal notranslate"><span class="pre">aluno</span></code> with the class <code class="docutils literal notranslate"><span class="pre">Avaliacao</span></code> and <code class="docutils literal notranslate"><span class="pre">Aluno</span></code>.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Meta</span></code> the variable <code class="docutils literal notranslate"><span class="pre">unique_together</span></code> will be responsible to Sets of field names that, taken together, must be unique.</p>
+<div class="section" id="create-the-serializer-of-the-api">
+<h3>Create the Serializer of the API<a class="headerlink" href="#create-the-serializer-of-the-api" title="Link permanente para este título">¶</a></h3>
+<p>Serializers allow complex data such as querysets and model instances to be converted to native Python datatypes that can then be easily rendered
+into JSON, XML or other content types.</p>
+<p>The serializer will receive the class created in the models and will be responsible to change the value os the class to a JSON type.
+This file will also be responsible to allow conditions as if, for, … (we gonna see a exemple latter in the <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">validate_avaliacao</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Curso</span><span class="p">,</span> <span class="n">Avaliacao</span><span class="p">,</span> <span class="n">Aluno</span>
+</pre></div>
+</div>
+<p>The down below code will show how the serializer works</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AvaliacaoSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">extra_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;email&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;write_only&#39;</span> <span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Avaliacao</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;curso&#39;</span><span class="p">,</span> <span class="s1">&#39;aluno&#39;</span><span class="p">,</span> <span class="s1">&#39;comentario&#39;</span><span class="p">,</span> <span class="s1">&#39;avaliacao&#39;</span><span class="p">,</span> <span class="s1">&#39;criacao&#39;</span><span class="p">,</span> <span class="s1">&#39;ativo&#39;</span>
+        <span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">validate_avaliacao</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">valor</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">valor</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">valor</span>
+            <span class="k">raise</span> <span class="n">serializers</span><span class="o">.</span><span class="n">ValidationError</span><span class="p">(</span><span class="s1">&#39;A avaliacao está incorreta! ela precisa estar entre 1 a 9,9&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">Meta</span></code> in the class AvaliacaoSerializar, will receive the Class Avaliacao from models and his
+components as id, curso, aluno …
+Also will receive a extra_kwargs that will be responsible to online write in the email field</p>
+<p>The function <cite>validate_avalicao</cite>  will be responsible to see if the variable <cite>data</cite> is in the range of 1 and 10, if not, the function will show a warning message
+the others class will do the same thing as the <code class="docutils literal notranslate"><span class="pre">AvaliacaoSerializer</span></code></p>
+</div>
+<div class="section" id="create-the-views-of-the-api">
+<h3>Create the Views of the API<a class="headerlink" href="#create-the-views-of-the-api" title="Link permanente para este título">¶</a></h3>
+<p>The view function is a Python function that takes a Web request and returns a Web response.</p>
+<p>In this program, we will need to import the following things</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Curso</span><span class="p">,</span> <span class="n">Avaliacao</span><span class="p">,</span> <span class="n">Aluno</span>
+</pre></div>
+</div>
+<p>import the class from the models</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">.serializers</span> <span class="kn">import</span> <span class="n">CursoSerializer</span><span class="p">,</span> <span class="n">AvaliacaoSerializer</span><span class="p">,</span> <span class="n">AlunoSerializer</span>
+</pre></div>
+</div>
+<p>Import the class created in the serializer file</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">viewsets</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ViewSet</span></code> function is a abstract logic of a CRUD function</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rest_framework.decorators</span> <span class="kn">import</span> <span class="n">action</span>
+</pre></div>
+</div>
+<p>Use the decorators to  import a <code class="docutils literal notranslate"><span class="pre">action</span></code> command, that latter will be used to create a new route</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Response</span></code> is a type of TemplateResponse that takes unrendered content and uses content negotiation to determine the correct content
+type to return to the client.</p>
+</div>
+</div>
+<div class="section" id="views-class-code">
+<h2>Views class code<a class="headerlink" href="#views-class-code" title="Link permanente para este título">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CursoViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+<span class="n">queryset</span> <span class="o">=</span> <span class="n">Curso</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="n">serializer_class</span> <span class="o">=</span> <span class="n">CursoSerializer</span>
+
+<span class="nd">@action</span><span class="p">(</span><span class="n">detail</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;get&#39;</span><span class="p">])</span> <span class="c1"># decorator que cria uma nova rota</span>
+<span class="k">def</span> <span class="nf">avaliacoes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">curso</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_object</span><span class="p">()</span>
+    <span class="n">serializer</span> <span class="o">=</span> <span class="n">AvaliacaoSerializer</span><span class="p">(</span><span class="n">curso</span><span class="o">.</span><span class="n">avaliacoes</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All the class will receive the imported viewsets, and the class will receive all values of the respective class from the models
+and will set in a variable named <cite>queryset</cite></p>
+<p>the decorator <code class="docutils literal notranslate"><span class="pre">&#64;action</span></code> will be responsible  to create a path using <cite>get</cite> methods to the <cite>avaliacao</cite> action.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AvaliacaoViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span> <span class="c1">#  se não quiser alguma função, basta usar o mixins. do botão ctrl no model viewSet no lugar do &quot;viewsets.ModelViewSet</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Avaliacao</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">AvaliacaoSerializer</span>
+
+
+<span class="k">class</span> <span class="nc">AlunoViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">Aluno</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">AlunoSerializer</span>
+</pre></div>
+</div>
+<p>And this two class will do the same thing, they’ll receive the serializer content, and will use the viewset class to create a CRUD action.</p>
+</div>
+<div class="section" id="create-the-urls-in-the-core-program">
+<h2>Create the urls in the core program<a class="headerlink" href="#create-the-urls-in-the-core-program" title="Link permanente para este título">¶</a></h2>
+<p>This urls will be responsible to import the class from the views
+.. code:: python</p>
+<blockquote>
+<div><p>from .views import CursoViewSet, AvaliacaoViewSet, AlunoViewSet</p>
+</div></blockquote>
+<p>And the following function will help the user to create a simple router
+.. code:: python</p>
+<blockquote>
+<div><p>from rest_framework.routers import SimpleRouter</p>
+</div></blockquote>
+<p>After this, you’ll just need to do the following process</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">router</span> <span class="o">=</span> <span class="n">SimpleRouter</span><span class="p">()</span>
+<span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;cursos&#39;</span><span class="p">,</span> <span class="n">CursoViewSet</span><span class="p">)</span>
+<span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;avaliacoes&#39;</span><span class="p">,</span> <span class="n">AvaliacaoViewSet</span><span class="p">)</span>
+<span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s1">&#39;alunos&#39;</span><span class="p">,</span> <span class="n">AlunoViewSet</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And import this to the urls app and add the route to the urlpatterns</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cursos.urls</span> <span class="kn">import</span> <span class="n">router</span>
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+<span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
+<span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/v2/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="n">router</span><span class="o">.</span><span class="n">urls</span><span class="p">))</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="finalresult.html" class="btn btn-neutral float-right" title="Final result of our project" accesskey="n" rel="next">Próximo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="installations.html" class="btn btn-neutral float-left" title="Startting the Program" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Douglas Constantini.
+
+    </p>
+  </div>
+    
+    
+    
+    Compilado com <a href="https://www.sphinx-doc.org/">Sphinx</a> usando um
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

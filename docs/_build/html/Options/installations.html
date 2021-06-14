@@ -1,0 +1,252 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt-BR" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Startting the Program &mdash; documentação Basic REST API 11/06/21</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Buscar" href="../search.html" />
+    <link rel="next" title="Database Configuration REST" href="database.html" />
+    <link rel="prev" title="Welcome to Basic REST API’s documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Basic REST API
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Pesquisar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Options:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Startting the Program</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#starting-with-django-and-python">Starting with Django and Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sync-the-database-for-the-first-time">Sync the database for the first time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database Configuration REST</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Basic REST API</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Startting the Program</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/Options/installations.rst.txt" rel="nofollow"> Ver código-fonte da página</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="startting-the-program">
+<h1>Startting the Program<a class="headerlink" href="#startting-the-program" title="Link permanente para este título">¶</a></h1>
+<p>To use rest framework you will need to have:</p>
+<blockquote>
+<div><p><a href="#id1"><span class="problematic" id="id2">*</span></a><a class="reference external" href="https://www.python.org/downloads/">Python Version</a> &gt;= 3.5</p>
+<p><a href="#id3"><span class="problematic" id="id4">*</span></a><a class="reference external" href="https://docs.djangoproject.com/en/3.2/topics/install/">Django Version</a> &gt;= 2.2</p>
+</div></blockquote>
+<div class="section" id="starting-with-django-and-python">
+<h2>Starting with Django and Python<a class="headerlink" href="#starting-with-django-and-python" title="Link permanente para este título">¶</a></h2>
+<p>To start your project you will need to install this following process:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">django</span>
+
+<span class="n">django</span><span class="o">-</span><span class="n">admin</span> <span class="n">startproject</span> <span class="s1">&#39;name of your projecjt&#39;</span> <span class="o">.</span>
+
+<span class="n">django</span><span class="o">-</span><span class="n">admin</span> <span class="n">startapp</span> <span class="n">quickstart</span>
+
+<span class="n">pip</span> <span class="n">install</span> <span class="n">djangorestframework</span>
+
+<span class="n">pip</span> <span class="n">install</span> <span class="n">django</span><span class="o">-</span><span class="nb">filter</span>
+</pre></div>
+</div>
+<p>And in your Django.Settings you will need to add <code class="docutils literal notranslate"><span class="pre">rest_framework</span></code> to the <code class="docutils literal notranslate"><span class="pre">INSTALLED_APPS</span></code></p>
+</div>
+<div class="section" id="sync-the-database-for-the-first-time">
+<h2>Sync the database for the first time<a class="headerlink" href="#sync-the-database-for-the-first-time" title="Link permanente para este título">¶</a></h2>
+<p>In the terminal you will migrate the database for the first time using the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">migrate</span>
+</pre></div>
+</div>
+<p>Also, you will need to create a super user, that you allow you to enter as super user</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">createsuperuser</span> <span class="o">--</span><span class="n">email</span> <span class="n">admin</span><span class="nd">@example</span><span class="o">.</span><span class="n">com</span> <span class="o">--</span><span class="n">username</span> <span class="n">admin</span>
+</pre></div>
+</div>
+<p>After doing all this, we will start with the database of our application.
+<a class="reference external" href="database.html">Go to ‘How to configurate my Database’</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="database.html" class="btn btn-neutral float-right" title="Database Configuration REST" accesskey="n" rel="next">Próximo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to Basic REST API’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Douglas Constantini.
+
+    </p>
+  </div>
+    
+    
+    
+    Compilado com <a href="https://www.sphinx-doc.org/">Sphinx</a> usando um
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
